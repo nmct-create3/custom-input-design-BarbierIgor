@@ -63,6 +63,10 @@
     --global-input-hover-borderColor: var(--global-color-neutral-xx-light);
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
+
+
+    /* transition values */
+    --global-input-transition: 0.2s
 }
 
 /*------------------------------------*\
@@ -636,12 +640,23 @@ input::placeholder {
     margin-right: var(--global-whitespace-sm);
 }
 
+.c-option-list{
+    margin-bottom: 24px;
+}
+
+.c-option-list__item{
+    margin-bottom: 12px;
+}
+
 .c-custom-option{
     display: flex;
 }
 
 .c-custom-option__symbol{
     opacity: 0;
+    display: block;
+    transform: scale(0);
+    transition: var(--global-input-transition);
 }
 
 .c-custom-option__fake-input{
@@ -650,7 +665,12 @@ input::placeholder {
     height: 16px;
     border: 1px solid var(--global-color-neutral-xxx-light);
     margin-right: 8px;
-    box-shadow: var(--global-input-boxShadow);
+    justify-content: center;
+    align-items: center;
+}
+
+.c-custom-option__fake-input:hover{
+    border: 1px solid var(--global-color-neutral-x-light);
 }
 
 .c-custom-option__fake-input--checkbox{
@@ -661,12 +681,36 @@ input::placeholder {
     border-radius: 100%;
 }
 
+
 .c-option--hidden:checked + .c-custom-option .c-custom-option__symbol {
-    
-      /* Do magic stuff here, for example: */
-      fill: blue;
-   
+    opacity: 1;
+    transition: var(--global-input-transition);
+    -webkit-transition: all 200ms cubic-bezier(0.250, 0.250, 0.845, 0.870);
+    -moz-transition: all 200ms cubic-bezier(0.250, 0.250, 0.845, 0.870);
+    -o-transition: all 200ms cubic-bezier(0.250, 0.250, 0.845, 0.870);
+    transition: all 200ms cubic-bezier(0.250, 0.250, 0.845, 0.870);
+    transform: scale(1);
   }
+
+.c-option--hidden:focus + .c-custom-option .c-custom-option__fake-input{
+    box-shadow: var(--global-input-boxShadow);
+}
+
+
+.c-custom-option__fake-input--checkbox .c-custom-option__symbol {
+  /* Stuff for the checkbox icon... */
+  width: 10px;
+  height: 10px;
+  fill: var(--global-color-alpha);
+}
+  
+.c-custom-option__fake-input--radio .c-custom-option__symbol {
+  /* Stuff for the radio button icon... */
+  width: 6px;
+  height: 6px;
+  background-color: var(--global-color-alpha);
+  border-radius: 100%;
+}
 
 /*
     Component: Label

@@ -621,7 +621,7 @@ input::placeholder {
     line-height: calc(var(--global-baseline) * 3);
     padding: calc(var(--global-baseline) * 1.5 - var(--global-borderWidth)) var(--global-whitespace-md);
     outline: none;
-    transition: border var(--global-transition-timing-alpha);
+    transition: border var(--global-transitionTiming-alpha);
 }
 
 .c-input:hover {
@@ -716,14 +716,42 @@ input::placeholder {
 
 .c-custom-toggle{
     display: flex;
+    align-items: center;
 }
 
 .c-custom-toggle__fake-input{
+    display: block;
     width: 48px;
     height: 24px;
     background-color: var(--global-color-neutral-xxxx-light);
     border-radius: 24px;
     border: 1px solid var(--global-color-neutral-xxx-light);
+    margin-right: 16px;
+}
+
+.c-custom-toggle__fake-input::after{
+    display: block;
+    content: "";
+    height: 22px;
+    width: 22px;
+    border-radius: 100%;
+    background-color: white;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.16);
+    transition: all var(--global-transitionTiming-alpha);
+}
+
+.c-custom-toggle__fake-input::after:focus{
+    width: 40px;
+}
+
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    transform: translateX(24px);
+}
+
+.c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input{
+    background-color: var(--global-color-alpha);
+    transition: var(--global-transitionTiming-alpha);
 }
 
 /*
@@ -761,7 +789,7 @@ input::placeholder {
     line-height: calc(var(--global-baseline) * 3);
     width: 100%;
     outline: none;
-    transition: all var(--global-transition-timing-alpha);
+    transition: all var(--global-transitionTiming-alpha);
 }
 
 .c-button:hover {

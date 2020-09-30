@@ -712,6 +712,20 @@ input::placeholder {
   border-radius: 100%;
 }
 
+/* option for toggle */
+
+.c-custom-toggle{
+    display: flex;
+}
+
+.c-custom-toggle__fake-input{
+    width: 48px;
+    height: 24px;
+    background-color: var(--global-color-neutral-xxxx-light);
+    border-radius: 24px;
+    border: 1px solid var(--global-color-neutral-xxx-light);
+}
+
 /*
     Component: Label
     ---

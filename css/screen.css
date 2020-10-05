@@ -740,10 +740,6 @@ input::placeholder {
     transition: all var(--global-transitionTiming-alpha);
 }
 
-.c-custom-toggle__fake-input::after:focus{
-    width: 40px;
-}
-
 
 .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
     transform: translateX(24px);
@@ -752,6 +748,33 @@ input::placeholder {
 .c-option--hidden:checked + .c-custom-toggle .c-custom-toggle__fake-input{
     background-color: var(--global-color-alpha);
     transition: var(--global-transitionTiming-alpha);
+}
+
+.c-option--hidden:focus + .c-custom-toggle .c-custom-toggle__fake-input{
+    box-shadow: var(--global-input-boxShadow);
+}
+
+.c-option--hidden:active + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    width: 26px;
+}
+
+.c-option--hidden:active:checked + .c-custom-toggle .c-custom-toggle__fake-input::after{
+    width: 26px;
+    transform: translateX(20px);
+}
+
+.c-toggle-list__item + .c-toggle-list__item{
+    margin-top: 16px;
+}
+
+.c-custom-toggle--inverted{
+    display: flex;
+    flex-flow: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+}
+.c-custom-toggle__fake-input{
+    margin-right: 0;
 }
 
 /*

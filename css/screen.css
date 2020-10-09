@@ -828,6 +828,25 @@ input::placeholder {
     box-shadow: none;
 }
 
+/*
+    Component: select
+    ---
+    Class to put on form selects
+*/
+
+.c-custom-select{
+    display: block;
+}
+
+.c-custom-select__symbol{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    fill: var(--global-color-neutral-x-light);
+    margin: 12px 12px 12px -36px;
+    pointer-events: none;
+}
+
 /*------------------------------------*\
 #UTILITIES
 \*------------------------------------*/

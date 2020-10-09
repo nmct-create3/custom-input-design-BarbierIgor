@@ -64,6 +64,8 @@
     --global-input-focus-borderColor: var(--global-color-alpha);
     --global-input-boxShadow: 0 0 0 3px var(--global-color-alpha-x-transparent);
 
+    /* card */
+    --card-background: white;
 
     /* transition values */
     --global-input-transition: 0.2s
@@ -543,7 +545,7 @@ input::placeholder {
 */
 
 .c-card {
-    background-color: White;
+    background-color: var(--card-background);
     margin-bottom: var(--global-whitespace);
     border-radius: var(--global-borderRadius);
     box-shadow: 0 0 0 var(--global-borderWidth) rgba(0,0,0, 0.05), 0 2px 4px rgba(0,0,0,.075);
@@ -1249,4 +1251,47 @@ No media query since this is the default in mobile first design
     h3 {
         page-break-after: avoid;
     }
+}
+
+/*
+    dark theme.
+*/
+
+@media (prefers-color-scheme: dark) {
+    html {
+        background-color: var(--global-color-neutral-xxxx-dark);
+    }
+
+    :root {
+        --global-page-color: var(--color-neutral-xxxx-dark);
+        --global-page-backgroundColor: var(--color-neutral-xxxx-light);
+    }
+
+    .c-card{
+        --global-input-backgroundColor: var(--global-color-neutral-xxxx-dark);
+        --card-background: var(--global-color-neutral-xxx-dark)
+    }
+
+    .c-card__title{
+        color: #FFFFFF;
+    }
+
+    .c-label{
+        color: #B5B6C0;
+    }
+
+    .c-logo__path--1 {
+        fill: white;
+      }
+      
+      .c-logo__path--2 {
+        fill: var(--global-color-alpha);
+      }
+      
+      .c-logo__path--3 {
+        fill: var(--color-alpha-x-dark);
+      }
+      .c-card__footer{
+        border-top: var(--global-borderWidth) solid var(--global-color-neutral-xxxx-dark)
+      }
 }
